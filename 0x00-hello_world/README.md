@@ -23,3 +23,7 @@
 	<td>5-printf</td>
 	<td> - Prints a string followed by a new line using printf</td>
 </tr>
+<tr>
+	<td>6-size.c</td>
+	<td> - Prints the size of various types</td>
+</tr>
