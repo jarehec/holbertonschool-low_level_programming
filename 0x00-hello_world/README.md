@@ -27,3 +27,11 @@
 	<td>6-size.c</td>
 	<td> - Prints the size of various types</td>
 </tr>
+<tr>
+	<td>100-intel.c</td>
+	<td> - Prints the assembly code in Intel format</td>
+</tr>
+<tr>
+	<td>101-quote.c</td>
+	<td> - Prints a string followed by a new line to the standard error</td>
+</tr>
