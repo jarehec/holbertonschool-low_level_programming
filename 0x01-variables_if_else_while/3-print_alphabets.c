@@ -6,15 +6,15 @@
 */
 int main(void)
 {
-	char loweralphabet[] = "abcdefghijklmnopqrstuvwxyz";
-	char upperalphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char lower[] = "abcdefghijklmnopqrstuvwxyz";
+	char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int counter;
 
 	for (counter = 0; counter <= MAX; counter++)
-		putchar(loweralphabet[i]);
+		putchar(lower[counter]);
 
 	for (counter = 0; counter <= MAX; counter++)
-		putchar(upperalphabet[i]);
+		putchar(upper[counter]);
 
 	putchar('\n');
 	return (0);
