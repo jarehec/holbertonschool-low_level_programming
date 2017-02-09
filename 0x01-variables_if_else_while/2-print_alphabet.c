@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 26
+#define MAX 25
 /**
 *main - writes the alphabet one letter per line
 *Return: 0
@@ -9,7 +9,7 @@ int main(void)
 	char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 	int i = 0;
 
-	while (i < MAX)
+	while (i <= MAX)
 	{
 		putchar(alphabet[i]);
 		putchar('\n');
