@@ -35,3 +35,4 @@
 	<td>101-quote.c</td>
 	<td> - Prints a string followed by a new line to the standard error</td>
 </tr>
+</table>
