@@ -12,8 +12,8 @@ int main(void)
 	while (i <= MAX)
 	{
 		putchar(alphabet[i]);
-		putchar('\n');
 		i++;
 	}
+	putchar('\n');
 	return (0);
 }
