@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX 25
 /**
-*main - writes the alphabet one letter per line
+*main - writes the alphabet followed by a new line
 *Return: 0
 */
 int main(void)
