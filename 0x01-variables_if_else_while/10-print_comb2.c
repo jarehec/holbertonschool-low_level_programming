@@ -13,7 +13,9 @@ int main(void)
 		putchar('0' + counter);
 
 		if (tenths == 9 && counter == 9)
+		{
 			tenths = 9;
+		}
 		else if (tenths <= 9 && counter < 10)
 		{
 			putchar(',');
