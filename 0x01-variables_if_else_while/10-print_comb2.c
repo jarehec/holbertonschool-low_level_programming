@@ -5,28 +5,26 @@
 */
 int main(void)
 {
-	int counter = 0, tenths = 0;
+	int counter = 0, tens = 0;
 
-	while (tenths <= 9)
+	while (tens <= 9)
 	{
-		putchar('0' + tenths);
-		putchar('0' + counter);
-
-		if (tenths == 9 && counter == 9)
+		while (counter <= 9)
 		{
-			tenths = 9;
-		}
-		else if (tenths <= 9 && counter < 10)
-		{
+			putchar('0' + tens);
+			putchar('0' + counter);
+			if (tens == 9 && counter == 9)
+			{
+				counter = tens = 10;
+				continue;
+			}
 			putchar(',');
 			putchar(' ');
+			++counter;
+			if (counter > 9)
+				tens++;
 		}
-		if (counter == 9)
-		{
-			tenths++;
-			counter = 0;
-		}
-		counter++;
+		counter = 0;
 	}
 	putchar('\n');
 	return (0);
