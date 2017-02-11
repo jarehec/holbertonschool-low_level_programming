@@ -44,4 +44,8 @@
 	<td>10-print_comb2.c</td>
 	<td>Prints numbers from 00 to 99</td>
 </tr>
+<tr>
+	<td>100-print_comb3.c</td>
+	<td>Prints all possible different combinations of two digits</td>
+</tr>
 </table>
