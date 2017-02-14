@@ -8,9 +8,10 @@ int main(void)
 	char hbtn[] = "Holberton";
 	int position;
 
-	for (position = 0; position <= 9; position++)
+	while (position <= 9)
 	{
 		_putchar(hbtn[position]);
+		position++;
 	}
 	_putchar('\n');
 	return (0);
