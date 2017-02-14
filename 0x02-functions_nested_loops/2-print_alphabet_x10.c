@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
-* print_alphabet - prints alphabet 10 times with new line*
+* print_alphabet_x10 - prints alphabet 10 times with new line*
 *
 */
 void print_alphabet_x10(void)
@@ -10,7 +10,7 @@ void print_alphabet_x10(void)
 
 	while (print <= 9)
 	{
-		for (counter = 0; counter < 26; counter++)
+		for (counter = 0; counter <= 25; counter++)
 		{
 			_putchar(alpha[counter]);
 		}
