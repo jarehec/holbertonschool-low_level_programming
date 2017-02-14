@@ -7,7 +7,7 @@
 */
 int add(int a, int b)
 {
-	unsigned int sum;
+	int sum;
 
 	sum = a + b;
 
