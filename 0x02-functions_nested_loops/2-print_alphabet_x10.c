@@ -5,16 +5,14 @@
 */
 void print_alphabet_x10(void)
 {
-	char a;
-	int print;
+	char alpha[] = "abcdefghijklmnopqrstuvwxyz";
+	int print = 0, counter;
 
 	while (print <= 9)
 	{
-		a = 'a';
-		while (a <= 'z')
+		for (counter = 0; counter < 26; counter++)
 		{
-			_putchar(a);
-			a++;
+			_putchar(alpha[counter]);
 		}
 		_putchar('\n');
 		print++;
