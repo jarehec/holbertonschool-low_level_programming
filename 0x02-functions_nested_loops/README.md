@@ -32,19 +32,20 @@
 	<td>Function that prints the last digit of a number</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
+	<td>8-24_hours.c</td>
+	<td>prints every minute of the day starting from 00:00 to 23:59</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
+	<td>9-times_table.c</td>
+	<td>Prints the 9 times table starting with 0</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
+	<td>10-add.c</td>
+	<td>Adds two integers and returns the result</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
+	<td>11-print_to_98.c</td>
+	<td>Prints all natural numbers from n to 98 followed by a new line</td>
 </tr>
 </table>
+
