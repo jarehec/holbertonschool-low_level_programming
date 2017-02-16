@@ -12,7 +12,7 @@ int main(void)
 		right += left;
 
 		printf("%lu", left);
-		if (count <= 48)
+		if (count <= 49)
 		{
 			printf(", ");
 			printf("%lu, ", right);
