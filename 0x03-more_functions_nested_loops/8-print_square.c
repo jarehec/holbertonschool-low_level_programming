@@ -7,6 +7,9 @@ void print_square(int size)
 {
 	unsigned char sqre;
 
+	if (size <= 0)
+		_putchar('\n');
+
 	if (size >= 1)
 	{
 		for (sqre = 1; sqre <= size * size; sqre++)
@@ -16,6 +19,4 @@ void print_square(int size)
 				_putchar('\n');
 		}
 	}
-	if (size <= 0)
-		_putchar('\n');
 }
