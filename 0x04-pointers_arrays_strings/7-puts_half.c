@@ -5,11 +5,11 @@
 */
 void puts_half(char *str)
 {
-	int count, hf;
+	unsigned int count, hf;
 
 	for (count = 0; str[count] != '\0'; count++)
 	;
-	if ((count % 2) != 0)
+	if ((count % 2) != 0 && count != 0)
 		count -= 1;
 
 	hf = (count /= 2);
