@@ -5,7 +5,7 @@
 */
 void print_rev(char *s)
 {
-	unsigned int prnt;
+	int prnt;
 
 	for (prnt = 0; s[prnt] != '\0'; prnt++)
 	;
