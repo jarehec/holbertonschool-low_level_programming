@@ -5,7 +5,7 @@
 */
 void puts2(char *str)
 {
-	unsigned char count;
+	unsigned int count;
 
 	for (count = 0; str[count] != '\0'; count++)
 		if (count % 2 == 0)
