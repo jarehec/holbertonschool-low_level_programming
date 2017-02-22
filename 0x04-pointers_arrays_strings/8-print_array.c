@@ -7,7 +7,7 @@
 */
 void print_array(int *a, int n)
 {
-	char count;
+	int count;
 
 	for (count = 0; count <= n - 1; count++)
 	{
