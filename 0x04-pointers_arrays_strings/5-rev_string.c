@@ -5,7 +5,7 @@
 */
 void rev_string(char *str)
 {
-	unsigned int i, icr, swap, temp;
+	int i, icr, swap, temp;
 
 	i = icr = 0;
 
