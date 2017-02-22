@@ -5,17 +5,15 @@
 */
 void puts_half(char *str)
 {
-	unsigned int count;
+	int count, loc;
 
 	for (count = 0; str[count] != '\0'; count++)
 	;
 
-	if ((count % 2) != 0)
-		count -= 1 / 2;
-	if ((count % 2 == 0))
-		count /= 2;
-
-	for ( ; str[count] != '\0'; count++)
-		_putchar(str[count]);
+	for (loc = 0; loc <= count; loc++)
+	{
+		if (loc >= count / 2)
+		_putchar(str[loc]);
+	}
 	_putchar('\n');
 }
