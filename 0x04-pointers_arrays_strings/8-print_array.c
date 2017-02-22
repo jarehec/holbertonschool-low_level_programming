@@ -7,13 +7,13 @@
 */
 void print_array(int *a, int n)
 {
-	int count;
-	
-	for (count = 0; count < n; count++)
+	unsigned char count;
+
+	for (count = 0; count <= n - 1; count++)
 	{
-		if (count + 1 < n)
+		if (count < n - 1)
 			printf("%d, ", a[count]);
-		if (count + 1 == n)
+		if (count == n - 1)
 			printf("%d\n", a[count]);
 	}
 }
