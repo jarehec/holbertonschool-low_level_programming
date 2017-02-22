@@ -5,15 +5,15 @@
 */
 void print_rev(char *s)
 {
-	unsigned int prnt;
+	unsigned char frst, scnd;
 
-	for (prnt = 0; s[prnt] != '\0'; prnt++)
+	for (frst = 0; s[frst] != '\0'; frst++)
 	;
 
-	for ( ; prnt + 1 != '\0'; prnt--)
-	{
-		_putchar(s[prnt]);
+	for (scnd = frst; scnd != 0;)
+	{	
+		_putchar(s[scnd - 1]);
+		scnd--;
 	}
-
 	_putchar('\n');
 }
