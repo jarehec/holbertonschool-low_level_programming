@@ -9,14 +9,11 @@ void print_array(int *a, int n)
 {
 	int count;
 	
-	if (n > 0)
+	for (count = 0; count < n; count++)
 	{
-		for (count = 0; count < n; count++)
-		{
-			if (count + 1 < n)
-				printf("%d, ", a[count]);
-			if (count + 1 == n)
-				printf("%d\n", a[count]);
-		}
+		if (count + 1 < n)
+			printf("%d, ", a[count]);
+		if (count + 1 >= n)
+			printf("%d\n", a[count]);
 	}
 }
