@@ -6,7 +6,8 @@
 * @n: src length
 * Return: dest
 */
-char *_strncat(char *dest, char *src, int n){
+char *_strncat(char *dest, char *src, int n)
+{
 	int len, dlen, i;
 
 	for (len = 0; src[len] != '\0'; len++)
