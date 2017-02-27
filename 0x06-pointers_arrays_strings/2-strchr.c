@@ -7,7 +7,7 @@
 */
 char *_strchr(char *s, char c)
 {
-	unsigned int fnd;
+	int fnd;
 
 	for (fnd = 0; s[fnd] != '\0'; fnd++)
 	{
@@ -17,5 +17,5 @@ char *_strchr(char *s, char c)
 			return (s);
 		}
 	}
-	return ("NULL");
+	return (0);
 }
