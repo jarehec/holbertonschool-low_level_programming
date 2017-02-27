@@ -12,7 +12,7 @@ char *_memset(char *s, char b, unsigned int n)
 	char *sptr = s;
 
 	for (count = 0; count < n; count++)
-		s[count] += b;
+		sptr[count] += b;
 
 	return (sptr);
 }
