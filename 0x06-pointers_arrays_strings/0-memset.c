@@ -9,11 +9,10 @@
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int count;
-	char *sptr = s;
-	char **mptr = &sptr;
+	char *ptr = s;
 
 	for (count = 0; count < n; count++)
-		sptr[count] += b;
+		s[count] = b;
 
-	return (*mptr);
+	return (ptr);
 }
