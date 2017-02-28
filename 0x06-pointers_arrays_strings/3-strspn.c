@@ -7,11 +7,11 @@
 */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count, i, match;
+	unsigned int count, i, match = 0;
 
-	for (count = 0; s[count] != ' '; count++)
+	for (count = 0; s[count] > ' '; count++)
 	{
-		for (i = 0; accept[i] >= '\0'; i++)
+		for (i = 0; accept[i] != '\0'; i++)
 		{
 			if (s[count] == accept[i])
 				match++;
