@@ -10,10 +10,11 @@ void _print_rev_recursion(char *s)
 	i = (i - 1) * 2;
 
 	i--;
-	if (s[i] !=  s[0] && *(s + i) > 31)
+	if (i > 0 && *(s + i) != '\n')
 	{
 		_putchar(*(s + i));
 		_print_rev_recursion(s - 1);
 	}
+	else
 	_putchar('\n');
 }
