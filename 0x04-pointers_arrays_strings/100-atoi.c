@@ -6,22 +6,15 @@
 */
 int _atoi(char *s)
 {
-	int num, min, n;
-
-	num = min = 0;
+	int num = 0, min = 0, n;
 
 	for (n = 0; !(s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
 	{
 		if (s[n] == '-')
 			min++;
 	}
-	for (; (s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
-	{
+	for ( ; (s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
 		num  = (num * 10) + (s[n] - '0');
-	}
 
-	if (min % 2 != 0)
-		return (-num);
-	else
-		return (num);
+	return (min % 2 != 0 ? -num : num);
 }
