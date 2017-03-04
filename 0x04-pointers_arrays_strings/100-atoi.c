@@ -27,4 +27,3 @@ int _atoi(char *s)
 	else
 		return (num);
 }
-
