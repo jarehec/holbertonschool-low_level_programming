@@ -8,18 +8,16 @@ int _atoi(char *s)
 {
 	int num, min, n;
 
-	num = min = n = 0;
+	num = min = 0;
 
-	while (!(s[n] >= '0' && s[n] <= '9') && s[n] != '\0')
+	for (n = 0; !(s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
 	{
 		if (s[n] == '-')
 			min++;
-		n++;
 	}
-	while ((s[n] >= '0' && s[n] <= '9') && s[n] != '\0')
+	for (; (s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
 	{
 		num  = (num * 10) + (s[n] - '0');
-		n++;
 	}
 
 	if (min % 2 != 0)
