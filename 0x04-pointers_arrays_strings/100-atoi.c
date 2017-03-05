@@ -6,7 +6,7 @@
 */
 int _atoi(char *s)
 {
-	int num = 0, min = 0, n;
+	unsigned int num = 0, min = 0, n;
 
 	for (n = 0; !(s[n] >= '0' && s[n] <= '9') && s[n] != '\0'; n++)
 	{
