@@ -4,22 +4,19 @@
 * main - multiplies two numbers
 * @argc: number of arguments
 * @argv: argument
-* Return: 0
+* Return: 0 or 1
 */
 int main(int argc, char *argv[])
 {
-	int i, mult = 1;
+	int mult;
 
-	if (argc > 1 && argc <= 3)
+	if (argc == 3)
 	{
-		for (i = 1; i <= 2; i++)
-			mult *= atoi(argv[i]);
+		mult = atoi(argv[1]) * atoi(argv[2]);
 		printf("%d\n", mult);
-		return (0);
 	}
 	else
-	{
-		printf("Error\n");
-		return (1);
-	}
+		puts("Error");
+
+	return (argc == 3 ? 0 : 1);
 }
