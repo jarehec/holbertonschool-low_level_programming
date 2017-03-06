@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		else if (atoi(argv[i]) / 1 != 0 && atoi(argv[i]) != 0)
+		if (atoi(argv[i]) / 1 != 0)
 			add += atoi(argv[i]);
 		else
 		{
