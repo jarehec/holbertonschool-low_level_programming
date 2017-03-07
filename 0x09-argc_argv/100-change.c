@@ -21,10 +21,7 @@ int main(int argc, char *argv[])
 			printf("%d\n", chg);
 	}
 	else if (amt < 0)
-	{
 		puts("0");
-		return (1);
-	}
 	else
 	{
 		puts("Error");
