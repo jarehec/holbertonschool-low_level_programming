@@ -11,7 +11,7 @@ char *str_concat(char *s1, char *s2)
 	char *mem;
 	int len, len1, i;
 
-	if (*s1 == '\0' || *s2 == '\0')
+	if (*s1 == '\0' && *s2 == '\0')
 		return (NULL);
 
 	for (len = 0; s1[len] != '\0'; len++)
@@ -19,12 +19,12 @@ char *str_concat(char *s1, char *s2)
 	for (len1 = 0; s2[len1] != '\0'; len1++)
 	;
 
-	mem = malloc(sizeof(char) * (len + len1 + 2));
+	mem = malloc(sizeof(char) * (len + len1 + 1));
 
 	for (i = 0; i <= len; i++)
 		mem[i] = s1[i];
 
-	for (i = 0; i <= len1 && s2[i] != '\0'; i++)
+	for (i = 0; i < len1 && s2[i] != '\0'; i++)
 		mem[len + i] = s2[i];
 
 	return (mem);
