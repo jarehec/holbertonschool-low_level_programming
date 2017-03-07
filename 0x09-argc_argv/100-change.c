@@ -9,10 +9,17 @@
 int main(int argc, char *argv[])
 {
 	int i, chg = 0, money[5] = {25, 10, 5, 2, 1};
-	int amt = atoi(argv[1]);
+	int amt;
 
-	if (argc == 2 && amt >= 0)
+	if (argc == 2)
 	{
+		amt = atoi(argv[1]);
+
+		if (amt < 0)
+		{
+			puts("0");
+			return (0);
+		}
 		for (i = 0; amt != 0; i++)
 		{
 			chg += amt / money[i];
@@ -20,8 +27,6 @@ int main(int argc, char *argv[])
 		}
 			printf("%d\n", chg);
 	}
-	else if (argc == 2 && amt < 0)
-		puts("0");
 	else
 	{
 		puts("Error");
