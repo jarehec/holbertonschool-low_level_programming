@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		}
 			printf("%d\n", chg);
 	}
-	else if (amt < 0)
+	else if (argc == 2 && amt < 0)
 		puts("0");
 	else
 	{
