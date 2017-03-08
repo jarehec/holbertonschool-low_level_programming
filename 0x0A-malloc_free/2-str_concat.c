@@ -9,7 +9,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *mem;
-	int len, len1, i;
+	unsigned int len, len1, i;
 
 	if (*s1 == '\0' && *s2 == '\0')
 		return (NULL);
