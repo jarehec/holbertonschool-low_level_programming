@@ -9,7 +9,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *mem;
-	unsigned int len, len1, i;
+	int len, len1, i;
 
 	for (len = 0; s1[len] != '\0'; len++)
 	;
