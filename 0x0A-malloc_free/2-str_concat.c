@@ -11,9 +11,9 @@ char *str_concat(char *s1, char *s2)
 	char *mem;
 	int len, len1, i;
 
-	if (*s1 == '\0')
+	if (s1 == '\0')
 		s1 = "";
-	if (*s2 == '\0')
+	if (s2 == '\0')
 		s2 = "";
 
 	for (len = 0; s1[len] != '\0'; len++)
