@@ -20,16 +20,17 @@ char *argstostr(int ac, char **av)
 			tlen++;
 		tlen++;
 	}
-
-	cpy = malloc(sizeof(int) * tlen + 1);
+	tlen++;
+	cpy = malloc(sizeof(int) * tlen);
 
 	if (cpy == NULL)
 		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++, k++)
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
 			cpy[k] = av[i][j];
+			k++;
 		}
 		cpy[k++] = '\n';
 	}
