@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 		tlen++;
 	}
 	tlen++;
-	cpy = malloc(sizeof(int) * tlen);
+	cpy = malloc(sizeof(char) * tlen);
 
 	if (cpy == NULL)
 		return (NULL);
