@@ -9,19 +9,14 @@
 char *argstostr(int ac, char **av)
 {
 	char *cpy;
-	int tlen = 0, i, j, k = 0;
+	int len = 0, i, j, k = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
-	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			tlen++;
-		tlen++;
-	}
-	tlen++;
-	cpy = malloc(sizeof(char) * tlen);
+	len = total_len(ac, av);
+
+	cpy = malloc(sizeof(char) * len + 1);
 
 	if (cpy == NULL)
 		return (NULL);
@@ -36,4 +31,15 @@ char *argstostr(int ac, char **av)
 	}
 	cpy[k] = '\0';
 	return (cpy);
+}
+int total_len(int ac, char **av)
+{
+	int i, j, tlen = 0;
+
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+			tlen++;
+	}
+	return (tlen);
 }
