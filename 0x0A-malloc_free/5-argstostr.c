@@ -25,7 +25,7 @@ char *argstostr(int ac, char **av)
 
 	if (cpy == NULL)
 		return (NULL);
-
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++, k++)
 		{
@@ -33,5 +33,6 @@ char *argstostr(int ac, char **av)
 		}
 		cpy[k++] = '\n';
 	}
+	cpy[k] = '\0';
 	return (cpy);
 }
