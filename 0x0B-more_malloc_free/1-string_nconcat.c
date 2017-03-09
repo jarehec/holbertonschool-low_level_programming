@@ -20,15 +20,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len = _strlen(s1);
 	len1 = _strlen(s2);
 
-	str = malloc(sizeof(char) * (len + len1 + 1));
+	if (len1 <= n)
+		len1 = n;
+
+	str = malloc(sizeof(char) * (len + n + 1));
 
 	if (str == NULL)
 		return (NULL);
 
 	str = _strcpy(str, s1);
-
-	if (n >= len1)
-		n = len1;
 
 	for (i = 0; i < n; i++)
 		str[len + i] = s2[i];
