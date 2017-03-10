@@ -21,7 +21,10 @@ char *str_concat(char *s1, char *s2)
 	for (len1 = 0; s2[len1] != '\0'; len1++)
 	;
 
-	mem = malloc(sizeof(char) * (len + len1 + 1));
+	mem = malloc(sizeof(char) * (len + len1 + 1))
+	if (mem == NULL)
+		return (NULL);
+
 	for (i = 0; i <= len; i++)
 		mem[i] = s1[i];
 

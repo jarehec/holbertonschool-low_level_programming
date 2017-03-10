@@ -13,7 +13,7 @@
 </tr>
 <tr>
 	<td>3-array_range.c</td>
-	<td>creates an array of integers/td>
+	<td>creates an array of integers</td>
 </tr>
 <tr>
 	<td>100-realloc.c [incomplete]</td>
