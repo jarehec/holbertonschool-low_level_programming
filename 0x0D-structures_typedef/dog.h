@@ -1,6 +1,5 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
-void init_dog(struct dog *d, char *name, float age, char *owner);
 /**
 * struct dog - dog struct
 * @name: dog name
@@ -9,8 +8,8 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
 */
 struct dog
 {
-	char * name;
+	char *name;
 	float age;
-	char * owner;
+	char *owner;
 };
 #endif
