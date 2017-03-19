@@ -12,8 +12,6 @@ void print_all(const char * const format, ...)
 	va_list args;
 	struct f_type types;
 
-	if (format == NULL)
-		return;
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
@@ -33,8 +31,9 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				types.s = va_arg(args, char *);
-				types.s == NULL ?
-					printf("(nil)") :
+				if (types.s == NULL)
+					printf("(nil)");
+				else if (types.c != NULL)
 					printf("%s", types.s);
 				break;
 			default:
@@ -43,9 +42,13 @@ void print_all(const char * const format, ...)
 		}
 		if (format[i + 1] != '\0' && set != 1)
 			printf(", ");
-		set = 0;
 		i++;
 	}
 	printf("\n");
 	va_end(args);
+}
+void (const char *fmt, struct typ)
+{
+
+
 }
