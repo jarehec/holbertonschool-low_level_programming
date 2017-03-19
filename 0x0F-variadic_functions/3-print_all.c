@@ -8,9 +8,9 @@
 */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int i = 0, set = 0;
 	va_list args;
-	char *tmp, set;
+	char *tmp;
 
 	va_start(args, format);
 	while (format[i] != '\0')
@@ -28,10 +28,9 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				tmp = va_arg(args, char *);
-				if (tmp != NULL)
-					printf("%s", tmp);
-				else if (tmp == NULL)
-					printf("(nil)");
+				if (tmp == NULL)
+					tmp = "(nil)";
+				printf("%s", tmp);
 				break;
 			default:
 				set = 1;
