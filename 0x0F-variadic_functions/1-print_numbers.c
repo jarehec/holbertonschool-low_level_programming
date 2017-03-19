@@ -23,7 +23,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 		if (count + 1 != n && separator != NULL)
 			printf("%d%s", cpy, separator);
-		if (separator == NULL)
+		else if (count + 1 == n && separator != NULL)
+			printf("%d", cpy);
+		else if (separator == NULL)
 			printf("%d", cpy);
 	}
 	printf("\n");
