@@ -6,12 +6,12 @@
 * print_numbers - prints ints
 * @separator: int separator
 * @n:num of ints
-* @...: int
 */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	unsigned int count;
 	va_list num;
+	int cpy;
 
 	if (n == 0)
 		return;
@@ -19,7 +19,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_start(num, n);
 	for (count = 0; count < n; count++)
 	{
-		printf("%d", va_arg(num, int));
+		cpy = va_arg(num, int);
+		printf("%d", cpy);
 		if (count + 1 != n && separator != NULL)
 			printf("%s", separator);
 	}
