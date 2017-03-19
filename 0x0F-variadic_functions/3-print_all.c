@@ -33,13 +33,13 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				types.s = va_arg(args, char *);
-				if (types.s == NULL)
-					printf("(nil)");
-				else
+				types.s == NULL ?
+					printf("(nil)") :
 					printf("%s", types.s);
 				break;
 			default:
 				set = 1;
+				break;
 		}
 		if (format[i + 1] != '\0' && set != 1)
 			printf(", ");
