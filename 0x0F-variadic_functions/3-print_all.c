@@ -13,8 +13,10 @@ void print_all(const char * const format, ...)
 	char set = 0, *tmp;
 
 	while (format == NULL)
+	{
+		printf("\n");
 		return;
-
+	}
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
