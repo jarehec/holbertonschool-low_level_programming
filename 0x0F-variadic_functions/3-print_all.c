@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, set = 0;
 	va_list args;
-	struct f_type types;
+	char *tmp;
 
 	va_start(args, format);
 	while (format[i] != '\0')
@@ -18,22 +18,19 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				types.c = va_arg(args, int);
-				printf("%c", types.c);
+				printf("%c", va_arg(args, int));
 				break;
 			case 'i':
-				types.i = va_arg(args, int);
-				printf("%d", types.i);
+				printf("%d", va_arg(args, int));
 				break;
 			case 'f':
-				types.f = va_arg(args, double);
-				printf("%f", types.f);
+				printf("%f", va_arg(args, double));
 				break;
 			case 's':
-				types.s = va_arg(args, char *);
-				if (types.s == NULL)
-					types.s = "(nil)";
-				printf("%s", types.s);
+				tmp = va_arg(args, char *);
+				if (tmp == NULL)
+					tmp = "(nil)";
+				printf("%s", tmp);
 				break;
 			default:
 				set = 1;
