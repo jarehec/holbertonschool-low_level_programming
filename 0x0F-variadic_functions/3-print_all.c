@@ -2,14 +2,13 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <float.h>
-#include <stdlib.h>
 /**
 * print_all - prints data of any type
 * @format: format types
 */
 void print_all(const char * const format, ...)
 {
-	int i = 0, **size;
+	int i = 0;
 	va_list args;
 	char set = 0, *tmp;
 
@@ -29,11 +28,9 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				tmp = va_arg(args, char *);
-				size = malloc(sizeof(tmp));
-				if (size == NULL)
+				if (tmp == NULL)
 					tmp = "(nil)";
 				printf("%s", tmp);
-				free(size);				
 				break;
 			default:
 				set = 1;
