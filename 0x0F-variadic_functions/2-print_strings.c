@@ -15,8 +15,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list string;
 	char *cmp;
 
-	if (separator == NULL)
-		separator = "";
 	if (n == 0)
 		return;
 
@@ -27,7 +25,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		cmp != NULL ?
 			printf("%s", cmp) :
 			printf("(nil)");
-		if (count + 1 != n)
+		if (count + 1 != n && separator != NULL)
 			printf("%s", separator);
 	}
 	printf("\n");
