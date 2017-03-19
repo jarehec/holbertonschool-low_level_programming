@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 				types.s = va_arg(args, char *);
 				if (types.s == NULL)
 					types.s = "(nil)";
-					printf("%s", types.s);
+				printf("%s", types.s);
 				break;
 			default:
 				set = 1;
