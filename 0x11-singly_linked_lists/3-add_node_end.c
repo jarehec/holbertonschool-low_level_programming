@@ -14,13 +14,13 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *end  = NULL;
 
 	end = malloc(sizeof(list_t));
-	if (end)
+	if (end != NULL)
 	{
 		end->str = strdup(str);
 		end->len = _strlen(end->str);
+		end->next = NULL;
 		if (*head == NULL)
 		{
-			end->next = NULL;
 			*head = end;
 			return (end);
 		}
@@ -41,7 +41,7 @@ list_t *add_node_end(list_t **head, const char *str)
 * @s: string input
 * Return: length of s
 */
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
 	unsigned int lngth = 0;
 

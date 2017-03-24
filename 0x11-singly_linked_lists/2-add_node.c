@@ -30,14 +30,13 @@ list_t *add_node(list_t **head, const char *str)
 * @s: string input
 * Return: length of s
 */
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
 	unsigned int lngth = 0;
 
-	if (s == NULL)
-		return (0);
-	for (lngth = 0; s[lngth] != '\0'; lngth++)
-	;
+	if (s != NULL)
+		for (lngth = 0; s[lngth] != '\0'; lngth++)
+		;
 
 	return (lngth);
 }
