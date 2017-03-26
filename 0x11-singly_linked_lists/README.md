@@ -9,8 +9,8 @@
 
 ### Usage
 
-
 ```
+$ cat file.c
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -30,7 +30,7 @@ int main(void)
 	return (0);
 }
 
-$ gcc -Wall -Werror -Wextra -pedantic 0-print_list.c 3-add_node_end.c 4-free_list.c -o demo
+$ gcc -Wall -Werror -Wextra -pedantic 0-print_list.c 3-add_node_end.c 4-free_list.c file.c -o demo
 $ ./demo
 [1] C
 [2] is
