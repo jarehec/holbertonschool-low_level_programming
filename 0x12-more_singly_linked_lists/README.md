@@ -44,7 +44,7 @@ int main(void)
     free_listint2(&head);
     return (0);
 }
--$ gcc -Wall -pedantic -Werror -Wextra 9-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 9-insert_nodeint.c
+-$ gcc -Wall -pedantic -Werror -Wextra file.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 9-insert_nodeint.c
 -$ ./a.out
 0
 1
