@@ -26,6 +26,8 @@ unsigned int binary_to_uint(const char *b)
 				dec += (b[idx] - 48) * _pow(2, len);
 				len--;
 			}
+			if (idx > 31)
+				return (0);
 		}
 	}
 	return (dec / 2);
@@ -40,6 +42,9 @@ unsigned int checkbin(const char *str)
 {
 	unsigned int idx, len = 0;
 	char set = 1;
+
+	if (str == NULL)
+		return (0);
 
 	for (idx = 0; str[idx] != '\0'; idx++)
 	{
