@@ -10,9 +10,11 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int len, idx, dec = 0;
 	char set = 1;
 
+	if (b == NULL)
+		return (0);
 	len = checkbin(b);
 
-	if (b == NULL || len == 0)
+	if (len == 0)
 		return (0);
 
 	for (idx = 0; b[idx] != '\0'; idx++)
