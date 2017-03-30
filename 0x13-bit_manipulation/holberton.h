@@ -4,9 +4,11 @@
 unsigned int binary_to_uint(const char *b);
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 unsigned int checkbin(const char *str);
+unsigned int digit_count(int n);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
 int set_bit(unsigned long int *n, unsigned int index);
 int clear_bit(unsigned long int *n, unsigned int index);
+int _putchar(char);
 long int _pow(unsigned int base, unsigned int exp);
 #endif
