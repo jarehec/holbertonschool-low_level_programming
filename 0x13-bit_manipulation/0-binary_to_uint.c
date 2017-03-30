@@ -12,19 +12,20 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 		return (0);
+
 	len = checkbin(b);
 
-	if (len == 0)
-		return (0);
-
-	for (idx = 0; b[idx] != '\0'; idx++)
+	if (len != 0)
 	{
-		if (b[idx] == '1')
-			set = 0;
-		if (set == 0)
+		for (idx = 0; b[idx] != '\0'; idx++)
 		{
-			dec += (b[idx] - 48) * _pow(2, len);
-			len--;
+			if (b[idx] == '1')
+				set = 0;
+			if (set == 0)
+			{
+				dec += (b[idx] - 48) * _pow(2, len);
+				len--;
+			}
 		}
 	}
 	return (dec / 2);
@@ -58,7 +59,7 @@ unsigned int checkbin(const char *str)
 *
 * Return: base ^ exp
 */
-int _pow(unsigned int base, unsigned int exp)
+long int _pow(unsigned int base, unsigned int exp)
 {
 	int res = 1;
 
