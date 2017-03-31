@@ -5,8 +5,8 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned int c;
-	unsigned int mask = 1 << 31;
+	unsigned long int c;
+	unsigned long int mask = 1UL << (sizeof(n) * 8 - 1);
 	char set = 0;
 
 	if (n == 0)
@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	for (c = 1; c <= 32 ; c++)
+	for (c = 0; c <= (sizeof(n) * 8 - 1); c++)
 	{
 		if (n & mask)
 			set = 1;
