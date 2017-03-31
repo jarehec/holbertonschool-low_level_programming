@@ -5,7 +5,7 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned int c, max = (sizeof(unsigned long int) * 4);
+	unsigned int c;
 	unsigned int mask = 1 << 31;
 	char set = 0;
 
@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	for (c = 1; c <= max ; c++)
+	for (c = 1; c <= 32 ; c++)
 	{
 		if (n & mask)
 			set = 1;
