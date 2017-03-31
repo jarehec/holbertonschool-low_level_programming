@@ -18,6 +18,6 @@ void print_binary(unsigned long int n)
 		if (n & i)
 			set = 1;
 		if (set == 1)
-			(n & i)? _putchar('1'): _putchar('0');
+			(n & i) ? _putchar('1') : _putchar('0');
 	}
 }
