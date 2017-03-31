@@ -4,7 +4,7 @@
 * @n: base10 integer
 * @index: index
 *
-* Return: 0 or 1, -1 if error
+* Return: 1, -1 if error
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
@@ -13,8 +13,5 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 	*n &= ~(1 << index);
 
-	if (n[index] == 0)
-		return (1);
-	else
-		return (-1);
+	return (*n & 0 ? 1 : -1);
 }
