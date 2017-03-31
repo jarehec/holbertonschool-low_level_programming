@@ -5,8 +5,7 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned int counter;
-	unsigned int mask = 1 << 31;
+	unsigned int i;
 	char set = 0;
 
 	if (n == 0)
@@ -14,12 +13,11 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	for (counter = 1; counter <= 32 ; counter++)
+	for (i = 1 << 31; i > 0; i = i / 2)
 	{
-		if (n & mask)
+		if (n & i)
 			set = 1;
 		if (set == 1)
-			_putchar(n & mask ? '1' : '0');
-		n <<= 1;
+			(n & i)? _putchar('1'): _putchar('0');
 	}
 }
