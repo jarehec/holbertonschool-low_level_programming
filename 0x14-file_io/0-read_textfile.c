@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
 * read_textfile - reads a text file and displays the contents
 * @letters: number of letters to display
@@ -11,7 +10,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file = open(filename, O_RDONLY);
 	char *data;
-	int len = 0;
+	ssize_t len = 0;
 
 	if (filename && file > 0)
 	{
