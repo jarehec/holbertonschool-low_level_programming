@@ -19,9 +19,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			len = read(file, data, letters);
 			if (len < 0)
+			{
+				free(data);
 				return (0);
+			}
 			if (write(STDOUT_FILENO, data, len) != len)
+			{
+				free(data);
 				return (0);
+			}
 		}
 		free(data);
 	}
