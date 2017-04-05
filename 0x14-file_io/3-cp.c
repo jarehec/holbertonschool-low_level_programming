@@ -43,19 +43,19 @@ int copy_textfile(const char *file_from, const char *file_to)
 		end(99, file_to);
 	}
 	data = malloc(sizeof(char) * BUF);
-	if (data != NULL)
+	if (data == NULL)
+		end(99, file_to);
+	while (len != 0)
 	{
-		while (len != 0)
+		len = read(from, data, BUF);
+		if (write(to, data, len) == -1 || len == -1)
 		{
-			len = read(from, data, BUF);
-			if (write(to, data, len) == -1 || len == -1)
-			{
-				free(data);
-				end(99, file_to);
-			}
+			free(data);
+			end(99, file_to);
 		}
-		free(data);
 	}
+	free(data);
+
 	if (close(from) == -1)
 		endc(100, from);
 
