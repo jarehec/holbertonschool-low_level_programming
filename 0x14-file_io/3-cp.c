@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 */
 int copy_textfile(const char *file_from, const char *file_to)
 {
-	int from, to, len;
+	int from, to, len = 1;
 	char *data;
 
 	from = open(file_from, O_RDONLY);
@@ -45,18 +45,14 @@ int copy_textfile(const char *file_from, const char *file_to)
 	data = malloc(sizeof(char) * BUF);
 	if (data != NULL)
 	{
-		len = read(from, data, BUF);
-		if (len < 0)
+		while (len != 0)
 		{
-			free(data);
-			end(98, file_from);
-		}
-		while (len > BUF)
-			len += read(from, data, BUF);
-		if (write(to, data, len) != len)
-		{
-			free(data);
-			end(99, file_to);
+			len = read(from, data, BUF);
+			if (write(to, data, len) != len)
+			{
+				free(data);
+				end(99, file_to);
+			}
 		}
 		free(data);
 	}
