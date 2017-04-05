@@ -9,14 +9,12 @@
 */
 int main(int argc, char **argv)
 {
-	ssize_t file_from;
-
 	if (argc != 3)
 	{
 		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 29);
 		exit(97);
 	}
-	file_from = copy_textfile(argv[1], argv[2]);
+	copy_textfile(argv[1], argv[2]);
 
 	return (0);
 }
@@ -39,7 +37,7 @@ int copy_textfile(const char *file_from, const char *file_to)
 		dprintf(from, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	to = open(file_to, O_WRONLY | O_TRUNC);
+	to = open(file_to, O_WRONLY | O_TRUNC, 664);
 	if (to == -1)
 	{
 		to = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 664);
