@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 * @file_from: source
 * @file_to: dest
 *
-* Return: 1 on succes
+* Return: 1 on success
 */
 int copy_textfile(const char *file_from, const char *file_to)
 {
@@ -48,7 +48,7 @@ int copy_textfile(const char *file_from, const char *file_to)
 		while (len != 0)
 		{
 			len = read(from, data, BUF);
-			if (write(to, data, len) == -1)
+			if (write(to, data, len) == -1 || len == -1)
 			{
 				free(data);
 				end(99, file_to);
