@@ -15,6 +15,8 @@ int main(int argc, char **argv)
 		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 29);
 		exit(97);
 	}
+	if (argv[1] == NULL)
+		end(98, argv[1]);
 	copy_textfile(argv[1], argv[2]);
 
 	return (0);
@@ -31,8 +33,6 @@ int copy_textfile(const char *file_from, const char *file_to)
 	int from, to, len = 1;
 	char *data;
 
-	if (file_from == NULL)
-		end(98, file_from);
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
 		end(98, file_from);
