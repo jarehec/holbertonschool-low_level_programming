@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdio.h>
-#define BUF 1204
 /**
 * main - copies the content of one file to another
 * @argc: number of arguments
@@ -28,61 +27,37 @@ int main(int argc, char **argv)
 */
 int copy_textfile(const char *file_from, const char *file_to)
 {
-	int from, to;
+	int from, to, buf = 1024;
 	char *data;
-	ssize_t len = BUF;
+	ssize_t len = 0;
 
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
-		end(98, file_from);
-
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
 	to = open(file_to, O_WRONLY | O_TRUNC);
 	if (to == -1)
 	{
-		to = open(file_to, O_CREAT | O_WRONLY, 00664);
+		to = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 00664);
 		if (to == -1)
-			end(99, file_to);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
 	}
-	data = malloc(sizeof(char) * BUF);
+	data = malloc(sizeof(char) * buf);
 	if (data != NULL)
 	{
-		while (len != 0)
-		{
-			len = read(from, data, BUF);
-			if (write(to, data, len) != len)
-			{
-				free(data);
-				end(99, file_to);
-			}
-		}
+		len = read(from, data, buf);
+		while (len > buf)
+			len += read(from, data, buf);
+
+		write(STDERR_FILENO, data, len);
 		free(data);
 	}
-	if (close(from) == -1)
-		end(100, file_from);
-
-	if (close(to) == -1)
-		end(100, file_to);
-
+	close(from);
+	close(to);
 	return (1);
-}
-/**
-* end - exits the program and prints an error message
-* @stat: error number
-* @fd: file descriptor
-* @file: file name
-*/
-void end(int stat, const char *file)
-{
-	switch (stat)
-	{
-		case 98:
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-			exit(98);
-		case 99:
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-			exit(99);
-		case 100:
-			dprintf(STDERR_FILENO, "Can't close fd %s\n", file);
-			exit(100);
-	}
 }
