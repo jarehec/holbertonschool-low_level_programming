@@ -45,14 +45,18 @@ int copy_textfile(const char *file_from, const char *file_to)
 	data = malloc(sizeof(char) * BUF);
 	if (data == NULL)
 		end(99, file_to);
+
+	len = read(from, data, BUF);
+	if (len == -1)
+		end(98, file_from);
 	while (len != 0)
 	{
-		len = read(from, data, BUF);
-		if (write(to, data, len) == -1 || len == -1)
+		if (write(to, data, len) == -1)
 		{
 			free(data);
 			end(99, file_to);
 		}
+		len = read(from, data, BUF);
 	}
 	free(data);
 
