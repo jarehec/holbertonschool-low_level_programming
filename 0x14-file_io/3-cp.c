@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
-#define BUF 1204
+#define BUF 1024
 /**
 * main - copies the content of one file to another
 * @argc: number of arguments
@@ -28,9 +28,8 @@ int main(int argc, char **argv)
 */
 int copy_textfile(const char *file_from, const char *file_to)
 {
-	int from, to;
+	int from, to, len;
 	char *data;
-	ssize_t len = 1;
 
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
@@ -46,14 +45,18 @@ int copy_textfile(const char *file_from, const char *file_to)
 	data = malloc(sizeof(char) * BUF);
 	if (data != NULL)
 	{
-		while (len != 0)
+		len = read(from, data, BUF);
+		if (len < 0)
 		{
-			len = read(from, data, BUF);
-			if (write(to, data, len) != len)
-			{
-				free(data);
-				end(99, file_to);
-			}
+			free(data);
+			end(98, file_from);
+		}
+		while (len > BUF)
+			len += read(from, data, BUF);
+		if (write(to, data, len) != len)
+		{
+			free(data);
+			end(99, file_to);
 		}
 		free(data);
 	}
