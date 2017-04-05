@@ -37,7 +37,7 @@ int copy_textfile(const char *file_from, const char *file_to)
 	if (from == -1)
 		end(98, file_from);
 
-	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 00664);
+	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (to == -1)
 	{
 		end(99, file_to);
