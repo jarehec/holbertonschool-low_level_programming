@@ -68,7 +68,6 @@ int copy_textfile(const char *file_from, const char *file_to)
 /**
 * end - exits the program and prints an error message
 * @stat: error number
-* @fd: file descriptor
 * @file: file name
 */
 void end(int stat, const char *file)
@@ -84,9 +83,9 @@ void end(int stat, const char *file)
 	}
 }
 /**
-* checkclose - prints error msg, and exits
-*
-*
+* endc - prints error msg, and exits
+* @stat: error stat
+* @fd: file descriptor
 */
 void endc(int stat, int fd)
 {
