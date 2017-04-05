@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
-#define BUF 1024
+#define BUF 1204
 /**
 * main - copies the content of one file to another
 * @argc: number of arguments
