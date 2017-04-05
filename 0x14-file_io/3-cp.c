@@ -34,14 +34,14 @@ int copy_textfile(const char *file_from, const char *file_to)
 
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
-		end(98, from, file_from);
+		end(98, file_from);
 
 	to = open(file_to, O_WRONLY | O_TRUNC);
 	if (to == -1)
 	{
 		to = open(file_to, O_CREAT | O_WRONLY, 00664);
 		if (to == -1)
-			end(99, to, file_to);
+			end(99, file_to);
 	}
 	data = malloc(sizeof(char) * BUF);
 	if (data != NULL)
@@ -52,16 +52,16 @@ int copy_textfile(const char *file_from, const char *file_to)
 			if (write(to, data, len) != len)
 			{
 				free(data);
-				end(99, to, file_to);
+				end(99, file_to);
 			}
 		}
 		free(data);
 	}
 	if (close(from) == -1)
-		end(100, from, file_from);
+		end(100, file_from);
 
 	if (close(to) == -1)
-		end(100, to, file_to);
+		end(100, file_to);
 
 	return (1);
 }
@@ -71,18 +71,18 @@ int copy_textfile(const char *file_from, const char *file_to)
 * @fd: file descriptor
 * @file: file name
 */
-void end(int stat, int fd, const char *file)
+void end(int stat, const char *file)
 {
 	switch (stat)
 	{
 		case 98:
-			dprintf(fd, "Error: Can't read from file %s\n", file);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
 			exit(98);
 		case 99:
-			dprintf(fd, "Error: Can't write to %s\n", file);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 			exit(99);
 		case 100:
-			dprintf(fd, "Can't close fd %s\n", file);
+			dprintf(STDERR_FILENO, "Can't close fd %s\n", file);
 			exit(100);
 	}
 }
