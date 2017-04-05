@@ -12,9 +12,11 @@ int main(int argc, char **argv)
 {
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 29);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (argv[1] == NULL)
+		end(98, argv[1]);
 	copy_textfile(argv[1], argv[2]);
 
 	return (0);
@@ -35,12 +37,10 @@ int copy_textfile(const char *file_from, const char *file_to)
 	if (from == -1)
 		end(98, file_from);
 
-	to = open(file_to, O_WRONLY | O_TRUNC);
+	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	if (to == -1)
 	{
-		to = open(file_to, O_CREAT | O_WRONLY, 00664);
-		if (to == -1)
-			end(99, file_to);
+		end(99, file_to);
 	}
 	data = malloc(sizeof(char) * BUF);
 	if (data != NULL)
