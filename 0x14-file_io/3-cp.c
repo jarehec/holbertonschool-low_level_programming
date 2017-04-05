@@ -30,7 +30,7 @@ int copy_textfile(const char *file_from, const char *file_to)
 {
 	int from, to;
 	char *data;
-	ssize_t len = 0;
+	ssize_t len = 1;
 
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
@@ -46,23 +46,22 @@ int copy_textfile(const char *file_from, const char *file_to)
 	data = malloc(sizeof(char) * BUF);
 	if (data != NULL)
 	{
-		len = read(from, data, BUF);
 		while (len != 0)
 		{
-			len += read(from, data, BUF);
-		}
-		if (write(to, data, len) != len)
-		{
-			free(data);
-			end(99, file_to);
+			len = read(from, data, BUF);
+			if (write(to, data, len) != len)
+			{
+				free(data);
+				end(99, file_to);
+			}
 		}
 		free(data);
 	}
 	if (close(from) == -1)
-		end(100, file_from);
+		endc(100, from);
 
 	if (close(to) == -1)
-		end(100, file_to);
+		endc(100, to);
 
 	return (1);
 }
@@ -72,7 +71,7 @@ int copy_textfile(const char *file_from, const char *file_to)
 * @fd: file descriptor
 * @file: file name
 */
-void end(int stat, int fd, const char *file)
+void end(int stat, const char *file)
 {
 	switch (stat)
 	{
@@ -82,8 +81,15 @@ void end(int stat, int fd, const char *file)
 		case 99:
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 			exit(99);
-		case 100:
-			dprintf(STDERR_FILENO, "Can't close fd \n", file);
-			exit(100);
 	}
+}
+/**
+* checkclose - prints error msg, and exits
+*
+*
+*/
+void endc(int stat, int fd)
+{
+	dprintf(STDERR_FILENO, "Can't close fd %d\n", fd);
+		exit(stat);
 }

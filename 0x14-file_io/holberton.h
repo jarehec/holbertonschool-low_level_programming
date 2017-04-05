@@ -11,5 +11,6 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 int copy_textfile(const char *, const char *);
 void end(int, const char *);
+void endc(int, int);
 ssize_t _strlen(char *s);
 #endif
