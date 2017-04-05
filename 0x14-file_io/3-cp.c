@@ -37,27 +37,35 @@ int copy_textfile(const char *file_from, const char *file_to)
 		dprintf(from, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	to = open(file_to, O_WRONLY | O_TRUNC, 664);
+	to = open(file_to, O_WRONLY | O_TRUNC);
 	if (to == -1)
 	{
-		to = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 664);
-			if (to == -1)
-			{
-				dprintf(to, "Error: Can't write to %s\n", file_to);
-				exit(99);
-			}
+		close(to);
+		to = open(file_to, O_CREAT | O_WRONLY, 00664);
+		if (to == -1)
+		{
+			dprintf(to, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
 	}
 	data = malloc(sizeof(char) * buf);
 	if (data != NULL)
 	{
 		len = read(from, data, buf);
-		while (len > buf)
+		while (len >= buf)
 			len += read(from, data, buf);
-
 		write(to, data, len);
 		free(data);
 	}
-	close(from);
-	close(to);
+	if (close(from) == -1)
+	{
+		dprintf(from, "Can't close fd %s\n", file_from);
+		exit(100);
+	}
+	if (close(to) == -1)
+	{
+		dprintf(to, "Can't close fd %s\n", file_to);
+		exit(100);
+	}
 	return (1);
 }
