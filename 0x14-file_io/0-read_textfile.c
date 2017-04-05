@@ -18,12 +18,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (data != NULL)
 		{
 			len = read(file, data, letters);
-			if (len < 0)
-			{
-				free(data);
-				return (0);
-			}
-			if (write(STDOUT_FILENO, data, len) != len)
+			if (len < 0 || write(STDOUT_FILENO, data, len) != len)
 			{
 				free(data);
 				return (0);
