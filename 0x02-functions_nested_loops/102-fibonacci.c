@@ -3,7 +3,7 @@
 * main - prints first 50 fibo nums
 * Returm: 0
 */
-#define MAX 49
+#define MAX 50
 int main(void)
 {
 	unsigned long int a = 1, b = 0, c = 0, count;
