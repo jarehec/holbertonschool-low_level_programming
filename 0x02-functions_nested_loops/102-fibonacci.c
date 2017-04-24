@@ -3,22 +3,19 @@
 * main - prints first 50 fibo nums
 * Returm: 0
 */
+#define MAX 49
 int main(void)
 {
-	unsigned long int left = 1, right = 1, count;
+	unsigned long int a = 1, b = 0, c = 0, count;
 
-	for (count = 1; count <= 50; count++)
+	for (count = 0; count < MAX; count++)
 	{
-		right += left;
-
-		printf("%lu", left);
-		if (count <= 49)
-		{
+		a += b;
+		b = a - b;
+		c = a;
+		printf("%lu", c);
+		if (count + 1 != MAX)
 			printf(", ");
-			printf("%lu, ", right);
-		}
-		count++;
-		left += right;
 	}
 	putchar('\n');
 	return (0);
