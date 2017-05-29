@@ -1,5 +1,5 @@
 <style>
-p { margin-bottom: 0px;}
+p	{ margin: 0px; }
 </style>
 # 0x19. C - Hash tables
 ## 0-hash_table_create.c
