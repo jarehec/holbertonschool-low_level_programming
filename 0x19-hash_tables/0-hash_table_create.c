@@ -1,5 +1,5 @@
 #include "hash_tables.h"
-#include <stdio.h>
+
 /**
  * hash_table_create - Creates an empty hash table
  * @size: size of the hash table node
@@ -9,7 +9,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table = NULL;
 
-	table = malloc(sizeof(hash_table_t));
+	table = calloc(1, sizeof(hash_table_t));
 	if (!table)
 		return (NULL);
 	table->array = calloc(size, sizeof(hash_node_t *));
