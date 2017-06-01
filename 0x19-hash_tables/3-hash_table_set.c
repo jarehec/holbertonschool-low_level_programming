@@ -1,5 +1,4 @@
 #include "hash_tables.h"
-#include <stdio.h>
 
 /**
  * hash_table_set - Adds an element to the hash table
@@ -10,10 +9,10 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *node = NULL, *temp = NULL;
+	hash_node_t *node = NULL;
 	unsigned long int index;
 
-	if (!ht || !key || strlen(key) == 0 || !value)
+	if (!ht || !key || !value)
 		return (0);
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	node = malloc(sizeof(hash_node_t));
@@ -23,28 +22,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->key = strdup(key);
 	node->value = strdup(value);
 	if (!ht->array[index])
-	{
 		ht->array[index] = node;
-/*		printf("%s: %s\n", ht->array[index]->key, ht->array[index]->value);*/
+	else if (strcmp(ht->array[index]->key, key) == 0)
+	{
+		free(node->value);
+		free(node->key);
+		free(node);
+		free(ht->array[index]->value);
+		ht->array[index]->value = strdup(value);
 	}
 	else
-	{
-		for (temp = ht->array[index]; temp->next ; temp = temp->next)
-		{
-			if (strcmp(temp->key, key) == 0)
-			{
-				free(node->value);
-				free(node->key);
-				free(node);
-			/*	printf("current val: %s new val: %s\n", temp->value, value);*/
-				free(temp->value);
-				temp->value = strdup(value);
-	/*			printf("current val: %s\n", temp->value);*/
-				return (1);
-			}
-		}
 		ht->array[index]->next = node;
-	/*	printf("%s: %s\n", ht->array[index]->next->key, ht->array[index]->next->value);*/
-	}
 	return (1);
 }
