@@ -22,13 +22,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->key = strdup(key);
 	node->value = strdup(value);
 	if (!ht->array[index])
-	{
-		ht->array[index] = malloc(sizeof(hash_node_t *));
 		ht->array[index] = node;
+	else if (strcmp(ht->array[index]->key, key) == 0)
+	{
+		free(node->value);
+		free(node->key);
+		free(node);
+		free(ht->array[index]->value);
+		ht->array[index]->value = strdup(value);
 	}
 	else
-	{
 		ht->array[index]->next = node;
-	}
 	return (1);
 }
