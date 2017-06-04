@@ -1,5 +1,5 @@
 #include "hash_tables.h"
-#include <stdio.h>
+
 /**
  * hash_table_set - Adds an element to the hash table
  * @ht: hash table to update
@@ -12,10 +12,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *node = NULL, *temp = NULL;
 	unsigned long int index;
 
-	if (!ht || !key || strlen(key) < 1)
+	if (!ht || !key || strlen(key) < 1 || !value)
 		return (0);
-	index = hash_djb2((const unsigned char *)key) % ht->size;
-	printf("index: %lu\n", index);
+	index = key_index(((const unsigned char *)key), ht->size);
 	node = malloc(sizeof(hash_node_t));
 	if (!node)
 		return (0);
@@ -24,7 +23,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->value = strdup(value);
 	if (!ht->array[index])
 		ht->array[index] = node;
-	else if (ht->array[index]->next || strcmp(ht->array[index]->key, key) == 0)
+	else if (ht->array[index])
 	{
 		temp = ht->array[index];
 		while (temp)
@@ -46,7 +45,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			temp = temp->next;
 		}
 	}
-	else
-		ht->array[index]->next = node;
 	return (1);
 }
