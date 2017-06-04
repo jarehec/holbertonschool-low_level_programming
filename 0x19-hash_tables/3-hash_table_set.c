@@ -32,9 +32,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				prev->next = temp->next;
 				free(temp->value);
-				temp->value = strdup(value);
-				temp->next = ht->array[index];
-				ht->array[index] = temp;
+				free(temp->key);
+				free(temp);
+				node->next = ht->array[index];
+				ht->array[index] = node;
 				return (1);
 			}
 			if (!temp->next)
