@@ -22,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 			while (temp)
 			{
 				printf("'%s': '%s'", temp->key, temp->value);
-				if (idx < ht_len)
+				if (temp->next || idx < ht_len)
 					printf(", ");
 				temp = temp->next;
 			}
