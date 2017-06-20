@@ -1,42 +1,72 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - sorts a list in ascending order using insertion sort
- * @list: list to sort
- *
+ * insertion_sort_list - sorts a doubly linked list of integers in ascending
+ * order using the Insertion sort algorithm
+ * @list: dll to sort
+ * return: void
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = *list;
-	listint_t *ptr = NULL;
+	listint_t *temp, *prv, *nxt;
 
-	if (!(list || head || (*list)->next))
+	if (list == NULL || *list == NULL || node_count(list) < 2)
 		return;
-	for (head = *list; head; head = head->next)
+
+	temp = (*list)->next;
+	nxt = temp->next; prv = temp->prev;
+	while (temp)
 	{
-		for (ptr = head->prev; ptr; ptr = ptr->prev)
+		if (temp->n < prv->n)
 		{
-			if (head->n < ptr->n)
+			while (prv && temp->n < prv->n)
 			{
-				head->prev->next = head->next;
-				if (head->next)
-					head->next->prev = head->prev;
-				head->next = ptr;
-				if (ptr->prev)
-				{
-					head->prev = ptr->prev;
-					ptr->prev->next = head;
-					ptr->prev = head;
-				}
-				else
-				{
-					head->prev = NULL;
-					head->next = *list;
-					(*list)->prev = head;
-					*list = head;
-				}
+				/* next */
+				if (nxt)
+					nxt->prev = prv;
+
+				/* temp */
+				temp->next = prv;
+				temp->prev = prv->prev;
+
+				/* prev */
+				if (prv->prev)
+					prv->prev->next = temp;
+				prv->prev = temp;
+				prv->next = nxt;
+
+				nxt = prv;
+				prv = temp->prev;
+				if ((*list)->prev)
+					*list = (*list)->prev;
 				print_list(*list);
 			}
 		}
+		temp = nxt;
+		if (temp != NULL)
+		{
+			nxt = temp->next; prv = temp->prev;
+		}
 	}
+}
+
+/**
+ * node_count - returns the length of a doubly linked  listint_t list
+ * @list: the list to measure
+ * Return: the number of nodes in the list
+ */
+
+int node_count(listint_t **list)
+{
+	listint_t *ptr;
+	int count = 0;
+
+	ptr = *list;
+
+	while (ptr)
+	{
+		ptr = ptr->next;
+		count++;
+	}
+	return (count);
 }
