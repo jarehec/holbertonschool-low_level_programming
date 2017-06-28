@@ -1,0 +1,3 @@
+# Makefile that builds holberton executable
+all:
+	gcc main.c holberton.c -o holberton
