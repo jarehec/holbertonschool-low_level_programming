@@ -1,11 +1,11 @@
 # Makefile that builds holberton executable
-all: main.o holberton.o
-	gcc main.o holberton.o -o holberton
-main.o: main.c
-	gcc	-c -o main.o main.c
-holberton.o: holberton.c
-	gcc	-c -o holberton.o holberton.c
 CC	= 	gcc
-SRC	= 	*.c
-OBJ	= 	*.o
+SRC	= 	main.c holberton.c
+OBJ	= 	main.o holberton.o
 NAME=	holberton
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+main.o: main.c
+	$(CC)	-c -o main.o main.c
+holberton.o: holberton.c
+	$(CC)	-c -o holberton.o holberton.c
