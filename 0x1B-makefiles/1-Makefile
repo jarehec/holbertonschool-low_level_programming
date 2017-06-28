@@ -2,4 +2,4 @@
 all: main.c holberton.c
 	gcc main.c holberton.c -o holberton
 CC	=	gcc
-SRC	=	*.c
+SRC	=	main.c holberton.c
