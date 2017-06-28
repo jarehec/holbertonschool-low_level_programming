@@ -1,9 +1,9 @@
 # Makefile that builds holberton executable
 all: main.o holberton.o
 	gcc main.o holberton.o -o holberton
-main.o: main.c m.h
-	gcc -c -o main.o main.c
-holberton.o: holberton.c m.h
+main.o: main.c
+	gcc	-c -o main.o main.c
+holberton.o: holberton.c
 	gcc	-c -o holberton.o holberton.c
 CC	= 	gcc
 SRC	= 	*.c
