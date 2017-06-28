@@ -1,5 +1,5 @@
 # Makefile that builds holberton executable
 all: main.c holberton.c
-	$(CC) main.c holberton.c -o holberton
+	$(CC) main.c holberton.c -o $(SRC)
 CC	=	gcc
 SRC	=	main.c holberton.c
