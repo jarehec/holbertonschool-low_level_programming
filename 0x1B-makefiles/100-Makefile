@@ -14,6 +14,5 @@ clean:
 	$(RM) -f *~ $(NAME)
 oclean:
 	$(RM) -f *.o
-fclean:
-	$(RM) -f *.o *~ $(NAME)
+fclean: clean oclean
 re: oclean *.o all
