@@ -11,9 +11,9 @@ all: $(OBJ)
 	$(CC) -c -o $@.o $<
 
 clean:
-	rm -f *~ $(NAME)
+	$(RM) -f *~ $(NAME)
 oclean:
-	rm -f *.o
+	$(RM) -f *.o
 fclean:
-	rm -f *.o *~ $(NAME)
+	$(RM) -f *.o *~ $(NAME)
 re: oclean *.o all
