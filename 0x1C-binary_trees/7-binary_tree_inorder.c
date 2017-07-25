@@ -3,6 +3,7 @@
 /**
  * binary_tree_inorder - prints the data in a binary tree inorder
  * @tree: pointer to the root node of a binary tree
+ * @func: function that takes an int
  */
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
