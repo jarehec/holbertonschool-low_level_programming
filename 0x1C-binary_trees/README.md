@@ -16,21 +16,25 @@ The focus of this project is to learn:
 ## New commands / functions used:
 [binary_tree_print](https://github.com/holbertonschool/0x1C.c)
 ## Helpful Links
-- <a href="https://en.wikipedia.org/wiki/Binary_tree">Binary Tree</a>
-- <a href="https://www.tutorialspoint.com/data_structures_algorithms/tree_data_structure.htm">Data Structure and Algorithms - Tree</a>
-- <a href="https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm">Tree Traversal</a>
-- <a href="https://en.wikipedia.org/wiki/Binary_search_tree">Binary Search Tree</a>
-- <a href="https://www.youtube.com/watch?v=H5JubkIy_p8">YouTube - Data Structures:  Binary Tree</a>
+- [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree)
+- [Data Structure and Algorithms - Tree](https://www.tutorialspoint.com/data_structures_algorithms/tree_data_structure.htm)
+- [Tree Traversal](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm)
+- [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree)
+- [YouTube - Data Structures:  Binary Tree](https://www.youtube.com/watch?v=H5JubkIy_p8)
 
 ## File Descriptions
 TODO
 
 ## Authors
-Stuart Kuredjian
-Jared Heck
-twitter: @stueygk
+ Stuart Kuredjian
+ Jared Heck
+ 
+#### Twitter
+@stueygk
+@jarehec
 
-linkdin: https://www.linkedin.com/in/stuart-kuredjian-8100a273/
-
+#### Linkedin: 
+https://www.linkedin.com/in/stuart-kuredjian-8100a273/
+https://www.linkedin.com/in/jared-heck-28a469133
 ## License
 Public Domain, no copyright protection
