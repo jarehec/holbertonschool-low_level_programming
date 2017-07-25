@@ -26,15 +26,18 @@ The focus of this project is to learn:
 TODO
 
 ## Authors
- Stuart Kuredjian
- Jared Heck
+Stuart Kuredjian
+
+Jared Heck
  
 #### Twitter
 @stueygk
+
 @jarehec
 
 #### Linkedin: 
 https://www.linkedin.com/in/stuart-kuredjian-8100a273/
+
 https://www.linkedin.com/in/jared-heck-28a469133
 ## License
 Public Domain, no copyright protection
