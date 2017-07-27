@@ -8,15 +8,26 @@
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int is_full = 0;
+	return (tree && binary_tree_size(tree) % 2 == 0 ? 0 : 1);
+}
 
-	if (tree && tree->left && tree->right)
+/**
+ * binary_tree_size - measures the size of a binary tree
+ * @tree: binary tree
+ *
+ * Return: number of nodes
+ */
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	size_t count = 0;
+
+	if (tree)
 	{
-		is_full = 1;
-		is_full = binary_tree_is_full(tree->left);
-		is_full = binary_tree_is_full(tree->right);
+		if (tree->left)
+			count += binary_tree_size(tree->left);
+		if (tree->right)
+			count += binary_tree_size(tree->right);
+		count++;
 	}
-	if (!tree->left && !tree->right)
-		is_full = 1;
-	return (is_full);
+	return (count);
 }
