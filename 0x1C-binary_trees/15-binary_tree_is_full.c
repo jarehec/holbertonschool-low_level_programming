@@ -8,7 +8,9 @@
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	return (tree && binary_tree_size(tree) % 2 == 0 ? 0 : 1);
+	if (tree)
+		return (binary_tree_size(tree) % 2 == 0 ? 0 : 1);
+	return (0);
 }
 
 /**
