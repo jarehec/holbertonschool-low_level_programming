@@ -1,7 +1,6 @@
 #  Holberton School - 0x14. C - File I/O
-Description
 
-* The focus of this project is to learn:
+The focus of this project is to learn:
 * How to create, open, close, read and write files
 * What are file descriptors
 * What are the 3 standard file descriptors, what are their purpose and what are their POSIX names
