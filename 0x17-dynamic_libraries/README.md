@@ -13,7 +13,7 @@ The focus of this project is to learn:
 
 ## File Descriptions
 *  libholberton.so
-	* dynamic library the functions:
+	* dynamic library containing the functions:
 	* ```int _putchar(char c);
 		* int _islower(int c);
 		* int _isalpha(int c);
