@@ -41,8 +41,10 @@ The focus of this project is to learn:
 	* prints a hash table
 		* Prototype: `void hash_table_print(const hash_table_t *ht);`
 		* Example: 
-		``` hash_table_set(ht, "Jennie", "and Jay love asm");
-    hash_table_set(ht, "N", "queens");```
+		``` 
+		hash_table_set(ht, "Jennie", "and Jay love asm");
+    	hash_table_set(ht, "N", "queens");
+		```
     Output: `{'Jennie': 'and Jay love asm', 'N': 'queens'}`
 * 6-hash_table_delete
 	* deletes a hash table
