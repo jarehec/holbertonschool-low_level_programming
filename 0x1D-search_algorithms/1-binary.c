@@ -10,7 +10,7 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t mid = (size - 1) / 2, left = 0, right = (size - 1);
 
-	if (array)
+	if (array && size < 1)
 	{
 		while (left != right)
 		{
@@ -29,6 +29,8 @@ int binary_search(int *array, size_t size, int value)
 		}
 		print_array(array, left, right < size - 1 ? right + 1 : right);
 	}
+	else if (array && size == 1)
+		return (array[0] == value ? 0 : -1);
 	return (-1);
 }
 /**
@@ -48,6 +50,6 @@ void print_array(int *array, size_t left, size_t right)
 			if ((left) != right)
 				printf(", ");
 		}
+		printf("\n");
 	}
-	printf("\n");
 }
