@@ -12,18 +12,21 @@ int binary_search(int *array, size_t size, int value)
 
 	if (array)
 	{
-		while (left < right)
+		while (left != right)
 		{
 			if (array[left] == value)
 				return (left);
 			if (array[right] == value)
 				return (right);
+			if (array[mid] == value)
+				return (mid);
 			print_array(array, left, right < size - 1 ? right + 1 : right);
 			if (array[mid] > value)
 				right = mid - 1;
 			if (array[mid] < value)
 				left = mid + 1;
 			mid = (left + right) / 2;
+			getchar();
 		}
 		print_array(array, left, right < size - 1 ? right + 1 : right);
 	}
