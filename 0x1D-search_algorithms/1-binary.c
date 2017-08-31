@@ -10,9 +10,9 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t mid, left = 0, right = (size - 1);
 
-	if (array && size > 1)
+	if (array && size > 1) 
 	{
-		while (left <= right)
+		while (left != right)
 		{
 			mid = (left + right) / 2;
 			print_array(array, left, right < size - 1 ? right + 1 : right);
