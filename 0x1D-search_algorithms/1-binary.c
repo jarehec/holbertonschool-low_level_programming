@@ -8,18 +8,13 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int mid;
-	size_t left = 0, right = (size - 1);
+	size_t mid, left = 0, right = (size - 1);
 
 	if (array && size > 1)
 	{
 		while (left <= right)
 		{
 			mid = (left + right) / 2;
-			if (array[left] == value)
-				return (left);
-			if (array[right] == value)
-				return (right);
 			print_array(array, left, right < size - 1 ? right + 1 : right);
 			if (array[mid] > value)
 				right = mid;
