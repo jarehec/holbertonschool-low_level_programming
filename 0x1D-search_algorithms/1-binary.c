@@ -24,7 +24,10 @@ int binary_search(int *array, size_t size, int value)
 			if (array[mid] < value)
 				left = mid + 1;
 			if (array[mid] == value)
+			{
+				print_array(array, left, right < size - 1 ? right + 1 : right);
 				return (mid);
+			}
 			mid = (left + right) / 2;
 		}
 		print_array(array, left, right < size - 1 ? right + 1 : right);
