@@ -10,23 +10,22 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t mid, left = 0, right = (size - 1);
 
-	if (array && size > 1)
+	if (array && size > 0)
 	{
-		while (left != right)
+		while (left <= right)
 		{
 			mid = (left + right) / 2;
-			print_array(array, left, right < size - 1 ? right + 1 : right);
-			if (array[mid] > value)
-				right = mid - 1;
-			if (array[mid] < value)
-				left = mid + 1;
+			print_array(array, left, right);
 			if (array[mid] == value)
 				return (mid);
+			else if (left == right)
+				return (-1);
+			else if (array[mid] > value)
+				right = mid;
+			else if (array[mid] < value)
+				left = mid + 1;
 		}
-			print_array(array, left, right < size - 1 ? right + 1 : right);
 	}
-	else if (array && size == 1)
-		return (array[0] == value ? 0 : -1);
 	return (-1);
 }
 /**
