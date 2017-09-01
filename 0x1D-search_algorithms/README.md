@@ -15,7 +15,10 @@ The focus of this project is to learn:
 * [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
 ## File Descriptions
-TODO
+* 0-linear
+	* searches for an element in an array using linear search
+* 1-binary
+	* searches for an element in an array using binary search
 
 ## Authors
 Jared Heck
